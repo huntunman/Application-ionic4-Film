@@ -1,5 +1,7 @@
 {
   "name": "Application-ionic4-Film",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

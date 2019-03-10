@@ -1,0 +1,43 @@
+<ion-header>
+  <!-- On definie le titre et la couleur du bandeau du haut -->
+    <ion-navbar color = "primary">
+      <ion-title >Favorite Movies</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding >
+
+    <h1 *ngIf="movies && segment == 'popular'">Populaires</h1>
+    <h1 *ngIf="movies && segment == 'Favorite'">Favorite</h1>
+    <h1 *ngIf="movies && segment == 'Person'">Person</h1>
+
+    <!-- Affichage des films favoris enregistrer -->
+    <ion-grid >
+      <ion-row>
+        <!-- Pour chaque films on affiche leur affiche et on leur donne une action au click qui est d'afficher plus de détails en alllant sur une page créer pour cela -->
+        <ion-col col-4 *ngFor="let movie of favorite">
+          <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" (click)="onMovieDetail(movie.id)"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <div class="tabs">
+        <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="onTabSelected('popular')">
+          <ion-icon name="flame"></ion-icon>
+          <div class="label">Populaire</div>
+        </div>
+        <div class="tab" [ngClass]="{ 'active' : segment == 'Favorite' }" (click)="onTabSelected('Favorite')">
+          <ion-icon name="star"></ion-icon>
+          <div class="label">Favorite</div>
+        </div>
+        <div class="tab" [ngClass]="{ 'active' : segment == 'Person' }" (click)="onTabSelected('Person')">
+          <ion-icon name="calendar"></ion-icon>
+          <div class="label">Person</div>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-footer>  
+  

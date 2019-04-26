@@ -61,11 +61,11 @@ export class SearchMoviePage implements OnInit {
     let service;
     switch (this.segment) {
       case 'popular':  service = this.film.getPopularMovies(this.page); break;
-      case 'Favorite': service = this.favorite.getFavoriteMovie(this.page); break;
+      case 'Favorite': service = this.favorite.favoriteFilm(this.page); break;
       case 'Persons': service = this.person.getPopularPerson(this.page); break;
     }
-    const loadingOpts = { translucent: true, spinner: 'crescent', content: 'Cargando' };
-    const loading = await this.loadingCtrl.create(loadingOpts);
+    // const loadingOpts = ;
+    const loading = await this.loadingCtrl.create({ translucent: true, spinner: 'crescent' });
     loading.present();
     service.subscribe(res => {
       if (!this.movies) { this.movies = []; }

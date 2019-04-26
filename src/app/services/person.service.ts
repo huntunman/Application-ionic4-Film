@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { map, delay } from 'rxjs/operators';
 import { Person } from '../models/person';
 import { Injectable } from '@angular/core';
-import { query } from '@angular/core/src/render3';
 
 @Injectable({
     providedIn: 'root'
@@ -16,11 +15,6 @@ export class PersonService {
   };
 
   constructor(private http: HttpClient) {}
-
-  searchPersons(querry: string) {
-    return this.http.get(`${this.baseUrl}/search/person${this.getParams({ query: query })}`)
-    .pipe(map((res: any) => <Person[]>res.results));
-  }
 
   searchPerson(name: string) {
     return this.http.get(`${this.baseUrl}/search/person${this.getParams({ query: name })}`)

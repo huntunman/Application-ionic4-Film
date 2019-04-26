@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'search-movie', pathMatch: 'full' },
   { path: 'search-movie', loadChildren: './pages/search-movie/search-movie.module#SearchMoviePageModule' },
   { path: 'movie-detail', loadChildren: './pages/movie-detail/movie-detail.module#MovieDetailPageModule' },
   { path: 'favorite', loadChildren: './pages/favorite/favorite.module#FavoritePageModule' },

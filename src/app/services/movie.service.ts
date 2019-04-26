@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, delay } from 'rxjs/operators';
-
 import { Movie } from '../models/movie';
 
 @Injectable({
